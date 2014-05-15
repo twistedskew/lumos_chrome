@@ -8,7 +8,10 @@
   "permissions": [],
 
   "browser_action": {
-    "default_icon": "brain.png",
+    "default_icon": {
+      "19": "brain_19x19.png",
+      "38": "brain_76x76.png"
+    },
     "default_popup": "popup.html"
   }
 }
