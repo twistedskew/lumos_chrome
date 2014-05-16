@@ -6,17 +6,15 @@
   "version": "0.0.1",
 
   "permissions": [
+    "alarms",
+    "notifications",
     "background",
     "tabs",
     "https://staging-6.lumosity.com/api/oauth/token"
   ],
 
-  "background": {
-    "page": "background.html"
-  },
-
   "chrome_url_overrides" : {
-    "newtab": "background.html"
+    "newtab": "html/background.html"
   },
 
   "browser_action": {
@@ -24,6 +22,11 @@
       "19": "brain_19x19.png",
       "38": "brain_76x76.png"
     },
-    "default_popup": "popup.html"
+    "default_popup": "html/popup.html"
+  },
+
+  "background": {
+    "page": "html/background.html",
+    "persistent": false
   }
 }

@@ -1,5 +1,5 @@
 token_key = 'oauth_token';
-var user;
+user_key = 'lumos_user';
 
 function setToken(token){
   localStorage[token_key] = token;
@@ -17,25 +17,31 @@ function hasToken(){
   return !!getToken();
 }
 
+function setUser(user){
+  localStorage[user_key] = user;
+}
+
+function getUser(){
+  return localStorage[user_key];
+}
+
 function logoutLumosUser(){
   console.log('logging out');
   clearToken();
   window.close();
 }
-/*
-$.ajax({
-  type: "POST",
-  url: "https://staging-6.lumosity.com/api/oauth/token?grant_type=password&client_id=3zh64m4ddakh9t4jhoz1ttfvl&client_secret=ehh6yflu22l0lx9bewbvo3bxu&username=test111@example.com&password=test1",
-  success: function(data) {
-    setToken(data.access_token);
-    setUserInfo();
-  }
-});*/
 
-function login(){
+function login(username, pasword){
   $.ajax({
     type: "POST",
-    url: "https://staging-6.lumosity.com/api/oauth/token?grant_type=password&client_id=3zh64m4ddakh9t4jhoz1ttfvl&client_secret=ehh6yflu22l0lx9bewbvo3bxu&username=test111@example.com&password=test1",
+    url: "https://staging-6.lumosity.com/api/oauth/token",
+    data: {
+      grant_type: "password",
+      client_id: "3zh64m4ddakh9t4jhoz1ttfvl",
+      client_secret: "ehh6yflu22l0lx9bewbvo3bxu",
+      username: username,
+      password: password
+    },
     success: function(data) {
       setToken(data.access_token);
       setUserInfo();
@@ -58,7 +64,7 @@ function setUserInfo() {
     },
     url: 'https://staging-6.lumosity.com/api/user',
     success: function(data) {
-      user = data.user;
+      setUser(data.user);
     }
   });
 }
@@ -68,7 +74,9 @@ $( document ).ready(function() {
     logoutLumosUser();
   });
   $('#login').click(function() {
-    login();
+    username = $('input[name=email]').val()
+    password = $('input[name=password]').val()
+    login(username, password);
   })
 });
 
