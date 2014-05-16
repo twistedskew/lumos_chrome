@@ -40,7 +40,7 @@
   },
 
   "background": {
-    "page": "html/background.html",
+    "page": "html/real_background.html",
     "persistent": false
   }
 }

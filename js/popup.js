@@ -1,8 +1,20 @@
 $(function (){
-  var $agency = $('#agency');
+  var $button = $('#schedule'),
+    $time = $('#time');
 
-  $agency.on('change', function () {
-    var value = $agency.find(':selected').val();
-    chrome.runtime.sendMessage('Ok, Well take care of: ' + value);
+  function schedule () {
+    var time = Date.parse($time.val());
+    if (time) {
+      localStorage.setItem('time', time);
+      chrome.runtime.sendMessage(+time);
+      window.close();
+    } else {
+      alert('Use the following format: hour:minutes:am/pm');
+    }
+  }
+
+  $button.on('click', schedule);
+  $time.keypress(function (e) {
+    if (e.which == 13) { schedule(); }
   });
 });
