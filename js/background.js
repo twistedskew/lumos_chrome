@@ -1,3 +1,27 @@
+games = [
+  'brain-shift-2',
+  'brain-shift-overdrive-2',
+  'chalkboard-challenge-2',
+  'color-match-2',
+  'ebb-and-flow',
+  'follow-that-frog',
+  'lost-in-migration-2',
+  'memory-matrix-2',
+  'penguin-pursuit',
+  'pet-detective',
+  'pinball-recall',
+  'raindrops',
+  'robot-factory',
+  'spatial-speed-match-2',
+  'speed-pack',
+  'speed-match-2',
+  'speed-match-overdrive',
+  'star-search',
+  'train-of-thought',
+  'tidal-treasures',
+  'trouble-brewing'
+];
+
 token_key = 'oauth_token';
 user_key = 'lumos_user';
 var user;
