@@ -1,0 +1,32 @@
+body{
+  margin: 0px;
+}
+
+.ui-button{
+  width:100%;
+  box-sizing: border-box;
+  font-size: 0.8em !important;
+  color: gray !important;
+  border: 1px solid #ccc !important;
+}
+
+.ui-state-active{
+  border: 1px solid #ccc !important;
+  color: #1c94c4 !important;
+}
+
+.ui-state-default{
+  border: 1px solid #ccc !important;
+  background: #fff url("images/ui-bg_glass_65_ffffff_1x400.png") 50% 50% repeat-x !important;
+  color: gray;
+}
+
+#hit-none-label.ui-state-active, #hit-all-label.ui-state-active{
+  color: gray !important;
+}
+
+.ui-state-hover{
+  border: 1px solid #ccc !important;
+  background: #f6f6f6 url("images/ui-bg_glass_100_f6f6f6_1x400.png") 50% 50% repeat-x !important;
+  border: 1px solid #ccc !important;
+}
