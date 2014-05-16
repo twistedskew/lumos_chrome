@@ -5,13 +5,21 @@
   "description": "Train the way you want",
   "version": "0.0.1",
 
-  "permissions": [],
+  "permissions": [
+    "alarms",
+    "notifications"
+  ],
 
   "browser_action": {
     "default_icon": {
       "19": "brain_19x19.png",
       "38": "brain_76x76.png"
     },
-    "default_popup": "popup.html"
+    "default_popup": "html/popup.html"
+  },
+
+  "background": {
+    "page": "html/background.html",
+    "persistent": false
   }
 }
