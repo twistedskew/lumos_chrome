@@ -1,7 +1,20 @@
 <html>
+  <head>
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script src="../js/background.js"></script>
+    <script src="../js/prelogin.js"></script>
+    <script src="../js/post-background.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/background.css">
+  </head>
   <body>
-    <h1>Background Page</h1>
-    <p>Probably embbed games right here... or not</p>
     <script src="../js/app.js"></script>
+    <div class="content">
+      <h3>Here's your Lumosity break</h5>
+      <div id="game-container">
+        <object type="application/x-shockwave-flash" name="LumosBridge" width="640" height="520" id="game-canvas" style="visibility: visible;"><param name="scale" value="noscale"><param name="allowscriptaccess" value="always"><param name="allowfullscreen" value="false"><param name="wmode" value="opaque"><param name="flashvars" value="game_id=4&game_param=raindrops&game_resources_url=http://static.sl.lumosity.com/resources/games/4/0/&game_flash_asset_filename=http://static.sl.lumosity.com/admin_assets/games/4/swf/raindrops_game.swf?updated_at=1400216724&game_user_settings=<user_settings><level>0</level><num_trials>0</num_trials><time>0</time><to_param>128647728</to_param></user_settings>&split_tests=[object Object]&locale_id=en-US&environment=production"></object>
+      </div>
+      <h4 style="float:right">Lumosity</h4>
+      <h4>Settings <span id="username"></span></h4>
+    </div>
   </body>
 </html>
