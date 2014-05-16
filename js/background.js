@@ -1,5 +1,6 @@
 token_key = 'oauth_token';
 user_key = 'lumos_user';
+var user;
 
 function setToken(token){
   localStorage[token_key] = token;
@@ -18,11 +19,12 @@ function hasToken(){
 }
 
 function setUser(user){
-  localStorage[user_key] = user;
+  localStorage[user_key] = JSON.stringify(user);
+  user = user;
 }
 
 function getUser(){
-  return localStorage[user_key];
+  return JSON.parse(localStorage[user_key]);
 }
 
 function logoutLumosUser(){
@@ -45,7 +47,6 @@ function login(username, pasword){
     success: function(data) {
       setToken(data.access_token);
       setUserInfo();
-      window.close();
     },
     error: function(data) {
       alert('Incorrect. Please try again');
@@ -64,7 +65,31 @@ function setUserInfo() {
     },
     url: 'https://staging-6.lumosity.com/api/user',
     success: function(data) {
+      user = data.user;
       setUser(data.user);
+      //window.close();
+    }
+  });
+}
+
+function addGameResult(score, game_id){
+  $.ajax({
+    type: 'POST',
+    dataType: 'json',
+    data: JSON.stringify({
+      game_result: {
+        score: score,
+        game_id: game_id
+      }
+    }),
+    beforeSend: function (xhr) {
+      xhr.setRequestHeader("Authorization", "OAuth "+getToken()+"");
+      xhr.setRequestHeader("Accept", "application/json; application/vnd.lumoslabs.com; version=v2");
+      xhr.setRequestHeader("Content-Type", "application/json");
+    },
+    url: 'https://staging-6.lumosity.com/api/v2/game_results',
+    success: function(data) {
+      console.log(data);
     }
   });
 }
