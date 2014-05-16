@@ -10,11 +10,25 @@
     "notifications",
     "background",
     "tabs",
-    "https://staging-6.lumosity.com/api/oauth/token"
+    "https://staging-6.lumosity.com/api/oauth/token",
+    "http://static.sl.lumosity.com/compiled/trainer/lumosity_bridge-5bfbfa77a06a9de722bd79b2528e59a9.swf",
+    "http://static.sl.lumosity.com/*"
+  ],
+
+  "web_accessible_resources": [
+    "http://static.sl.lumosity.com/compiled/trainer/lumosity_bridge-5bfbfa77a06a9de722bd79b2528e59a9.swf",
+    "http://static.sl.lumosity.com/*"
   ],
 
   "chrome_url_overrides" : {
     "newtab": "html/background.html"
+  },
+
+  "sandbox": {
+    "pages": [
+      "html/game.html",
+      "game.html"
+    ]
   },
 
   "browser_action": {

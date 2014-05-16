@@ -24,7 +24,12 @@ function setUser(user){
 }
 
 function getUser(){
-  return JSON.parse(localStorage[user_key]);
+  if (localStorage[user_key]) {
+    return JSON.parse(localStorage[user_key]);
+  }
+  else {
+    return {};
+  }
 }
 
 function logoutLumosUser(){
@@ -49,7 +54,7 @@ function login(username, pasword){
       setUserInfo();
     },
     error: function(data) {
-      alert('Incorrect. Please try again');
+      $('.alerts').show();
     }
   });
 }
@@ -67,7 +72,7 @@ function setUserInfo() {
     success: function(data) {
       user = data.user;
       setUser(data.user);
-      //window.close();
+      window.close();
     }
   });
 }
@@ -94,15 +99,24 @@ function addGameResult(score, game_id){
   });
 }
 
+function doLogin(){
+  username = $('#user_email').val();
+  password = $('#user_password').val();
+  login(username, password);
+}
+
 $( document ).ready(function() {
   $('.logout').click(function() {
     logoutLumosUser();
   });
-  $('#login').click(function() {
-    username = $('input[name=email]').val()
-    password = $('input[name=password]').val()
-    login(username, password);
-  })
+  $('#user_login').click(function() {
+    doLogin();
+  });
+  $('#user_password').keypress(function(e) {
+    if(e.which == 13) {
+      doLogin();
+    }
+  });
 });
 
 if (this.hasToken()) {

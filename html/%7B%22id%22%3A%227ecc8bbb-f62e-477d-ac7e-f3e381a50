@@ -1,0 +1,15 @@
+%7B%22id%22%3A%227ecc8bbb-f62e-477d-ac7e-f3e381a503e2%22%2C%22timestamp%22%3A1400205198900%2C%22prop_map%22%3A%7B%7D%2C%22_d%22%3A%22.lumosity.com%22%7D
+
+%7B%22id%22%3A%224834a122-cee9-466b-8465-82a2f31fac68%22%2C%22timestamp%22%3A1399399356759%2C%22prop_map%22%3A%7B%22http_user_agent%22%3A%22Mozilla%2F5.0+%28Macintosh%3B+Intel+Mac+OS+X+10_9_2%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F34.0.1847.131+Safari%2F537.36%22%7D%2C%22_d%22%3A%22.lumosity.com%22%7D
+
+data="http://static.sl.lumosity.com/compiled/trainer/lumosity_bridge-5bfbfa77a06a9de722bd79b2528e59a9.swf" 
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://static.sl.lumosity.com/compiled/trainer/lumosity_bridge-5bfbfa77a06a9de722bd79b2528e59a9.swf', true);
+xhr.responseType = 'blob';
+xhr.onload = function(e) {
+  var $obj = $('#flash-game');
+  $obj.data = window.URL.createObjectURL(this.response);
+};
+
+xhr.send();

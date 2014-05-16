@@ -1,0 +1,35 @@
+body{
+  background-color: #f6f7f8;
+}
+
+h3{
+  color: #8B8B8B;
+  font-family: "Museo Sans","Lucida Grande",Arial,sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+h4{
+  color: #aeaeae;
+  font-family: "Museo Sans","Lucida Grande",Arial,sans-serif;
+  font-size: 0.9em;
+  font-weight: normal;
+}
+
+.content{
+  margin-left: auto;
+  margin-right: auto;
+  width: 680px;
+  margin-top: 30px;
+}
+
+#game-container{
+  background-color: white;
+  border: solid 1px #e2e2e2;
+  box-shadow: 0px 1px 2px #e2e2e2;
+  width:100%;
+}
+
+#game-canvas{
+  margin: 20px 20px 10px 20px;
+}
