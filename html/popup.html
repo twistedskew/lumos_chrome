@@ -1,16 +1,22 @@
 <html>
   <head>
     <script src="../js/jquery-2.1.1.min.js"></script>
-    <script src="../js/popup.js"></script>
-    <script src="../js/date.js"></script>
+    <script src="../js/jquery-ui-1.10.4.min.js"></script>
     <script src="../js/background.js"></script>
-    <link rel="stylesheet" href="../css/background.css" type="type/css" />
+    <script src="../js/date.js"></script>
+    <script src="../js/popup.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../css/background.css">
+    <link rel="stylesheet" type="text/css" href="../css/popup.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui-1.10.4.min.css">
   </head>
   <body>
     <div id="wrapper">
       <h3>Schedule today's Lumosity break</h3>
       <input type="text" id="time" size=10 />
       <button id="schedule">Schedule</button>
+      <div id="games-list">
+      </div>
     </div>
   </body>
 </html>
