@@ -5,7 +5,19 @@
   "description": "Train the way you want",
   "version": "0.0.1",
 
-  "permissions": [],
+  "permissions": [
+    "background",
+    "tabs",
+    "https://staging-6.lumosity.com/api/oauth/token"
+  ],
+
+  "background": {
+    "page": "background.html"
+  },
+
+  "chrome_url_overrides" : {
+    "newtab": "background.html"
+  },
 
   "browser_action": {
     "default_icon": {
