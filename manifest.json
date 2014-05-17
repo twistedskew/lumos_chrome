@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Lumosity",
-  "description": "Train the way you want",
+  "description": "Take a Lumosity brain and refocus your brain!",
   "version": "1.5.2",
 
   "permissions": [
