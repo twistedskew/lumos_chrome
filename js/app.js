@@ -14,7 +14,7 @@ chrome.alarms.onAlarm.addListener(function(alarm) {
   chrome.notifications.create('train', {
     type:     'basic',
     title:    'Lumosity',
-    message:  'Its time to train \\o/',
+    message:  'Its time for your Lumosity Break!',
     iconUrl:  '../brain_76x76.png',
     buttons: [
       {title: 'Snooze [2 secs]'},
