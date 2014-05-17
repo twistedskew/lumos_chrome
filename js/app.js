@@ -17,7 +17,7 @@ chrome.alarms.onAlarm.addListener(function(alarm) {
     message:  'Its time for your Lumosity Break!',
     iconUrl:  '../brain_76x76.png',
     buttons: [
-      {title: 'Snooze [2 secs]'},
+      {title: 'Snooze [30 secs]'},
       {title: 'Snooze [1 hour]'}
     ]
   }, K);
@@ -26,10 +26,10 @@ chrome.alarms.onAlarm.addListener(function(alarm) {
 chrome.notifications.onButtonClicked.addListener(function (id, index) {
   switch (index) {
     case 0:  // 5 secs
-      chrome.alarms.create({when: Date.now() + 2000});
+      chrome.alarms.create({when: Date.now() + 30000});
       break;
     case 1:
-      chrome.alarms.create({when: Date.now() + 10000});
+      chrome.alarms.create({when: Date.now() + 3600000});
       break;
   }
 });
