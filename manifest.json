@@ -3,7 +3,7 @@
 
   "name": "Lumosity",
   "description": "Train the way you want",
-  "version": "0.0.1",
+  "version": "1.5.2",
 
   "permissions": [
     "alarms",
