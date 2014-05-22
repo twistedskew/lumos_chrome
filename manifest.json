@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Lumosity Break",
-  "description": "Take a quick Lumosity break and refocus your brain! This extension is designed for experienced subscribers of Lumosity.",
+  "description": "Take a quick Lumosity break and refocus your brain!",
   "version": "1.5.3",
   "icons": { "16": "icon16.png",
            "48": "icon48.png",
