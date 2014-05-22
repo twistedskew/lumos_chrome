@@ -5,7 +5,7 @@ function resetGamesList(){
       checked_games.push(object.id);
     }
   });
-  localStorage['checked'] = JSON.stringify(checked_games);
+  localStorage.checked = JSON.stringify(checked_games);
 }
 
 function selectAll(){
@@ -18,10 +18,11 @@ $(function (){
   var $button = $('#schedule'),
     $time = $('#time');
 
-  if(!localStorage['checked']){
-    localStorage['checked'] = JSON.stringify(games);
+  if (!localStorage.checked) {
+    localStorage.checked = JSON.stringify(games);
   }
-  checked_games = JSON.parse(localStorage['checked']);
+
+  checked_games = JSON.parse(localStorage.checked);
 
   function schedule () {
     var time = Date.parse($time.val());
@@ -43,9 +44,9 @@ $(function (){
     var checked = "";
     console.log(object.slug);
     console.log(checked_games);
-    if($.inArray(object.slug, checked_games) >= 0){
+    if ($.inArray(object.slug, checked_games) >= 0) {
       checked = ' checked';
-    } 
+    }
     var i = $('<input type="checkbox" id="'+object.slug+'"'+checked+' class="game-name"><label for="'+object.slug+'">'+object.name+'</label>');
     $('#games-list').append(i);
   });

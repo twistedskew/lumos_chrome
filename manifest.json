@@ -3,20 +3,22 @@
 
   "name": "Lumosity Break",
   "description": "Take a quick Lumosity break and refocus your brain!",
-  "version": "1.5.3",
-  "icons": { "16": "icon16.png",
-           "48": "icon48.png",
-          "128": "icon128.png" },
+  "version": "0.0.6",
+
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
 
   "permissions": [
     "alarms",
     "notifications",
-    "background",
     "tabs"
   ],
 
   "chrome_url_overrides" : {
-    "newtab": "html/background.html"
+    "newtab": "html/game_play.html"
   },
 
   "sandbox": {
@@ -35,7 +37,6 @@
   },
 
   "background": {
-    "page": "html/real_background.html",
-    "persistent": false
+    "scripts": ["js/app.js"]
   }
 }
