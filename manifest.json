@@ -2,8 +2,11 @@
   "manifest_version": 2,
 
   "name": "Lumosity Break",
-  "description": "Take a Lumosity break and refocus your brain! This extension is designed for experienced subscribers of Lumosity. Get 1 game every time you open a new tab. Schedule your Lumosity Break each day and get reminded by a simple Chrome notification. You can also choose specific games to show up in your breaks.",
+  "description": "Take a Lumosity break and refocus your brain! This extension is designed for experienced subscribers of Lumosity. Get 1 fun game when you open a new tab. Schedule your Lumosity Break each day and get reminded by a simple Chrome notification. Choose specific games to show up in your breaks.",
   "version": "1.5.3",
+  "icons": { "16": "icon16.png",
+           "48": "icon48.png",
+          "128": "icon128.png" },
 
   "permissions": [
     "alarms",
