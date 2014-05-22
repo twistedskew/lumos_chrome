@@ -49,16 +49,6 @@ $(function (){
     var i = $('<input type="checkbox" id="'+object.slug+'"'+checked+' class="game-name"><label for="'+object.slug+'">'+object.name+'</label>');
     $('#games-list').append(i);
   });
-  /*$('#games-list').append('<hr>');
-
-  var hit_all = $('<input type="checkbox" id="hit-all"><label id="hit-all-label" for="hit-all">All</label>');
-  $('#games-list').append(hit_all);
-  $("#hit-all").button();
-
-  var hit_none = $('<input type="checkbox" id="hit-none"><label id="hit-none-label" for="hit-none">None</label>');
-  $('#games-list').append(hit_none);
-  $("#hit-none").button();
-*/
   $( ".game-name" ).button();
   $( ".game-name" ).click(function(button) {
     resetGamesList();
