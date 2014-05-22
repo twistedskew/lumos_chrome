@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html>
   <head>
     <script src="../js/jquery-2.1.1.min.js"></script>
     <script src="../js/jquery-ui-1.10.4.min.js"></script>
@@ -12,13 +12,18 @@
   </head>
   <body>
     <div id="wrapper">
-      <h3>Schedule your break</h3>
-      <input type="text" id="time" size=10 placeholder="4:00pm"/>
-      <button id="schedule">Schedule</button>
-      <hr />
-      <h3>Games for your break</h3>
+    <div class="schedule">
+      <h3>Schedule Today's Lumosity Break</h3>
+      <div class="rich-input">
+        <input type="text" id="time" size=10 placeholder="4:00pm"/>
+        <button class="btn" id="schedule">Remind Me!</button>
+      </div>
+    </div> 
+    <div class="games">
+      <h3>Games In Your Break</h3>
       <div id="games-list">
       </div>
+    </div> 
     </div>
   </body>
 </html>
