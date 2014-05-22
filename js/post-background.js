@@ -9,12 +9,6 @@ $(function() {/*
 
   xhr.send();*/
 
-  user = getUser();
-
-  name = user.unique_name || user.email_address
-
-  $('#username').text(name);
-
   window['sendToJavaScript'] = function(data) {
     var eventName = data.shift();
     console.log('Received ' + eventName + ' with ' + data + ' from AS');
