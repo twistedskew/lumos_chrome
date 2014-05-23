@@ -23,6 +23,7 @@ chrome.alarms.create(ALARM, {
 });
 
 chrome.browserAction.setBadgeText({text: '1'});
+chrome.browserAction.setBadgeBackgroundColor({color:'#000'}); 
 
 chrome.runtime.onMessage.addListener(function (message, _sender) {
   chrome.alarms.clear(ALARM, function (_cleared) {
@@ -40,14 +41,15 @@ chrome.alarms.onAlarm.addListener(function(alarm) {
         message:  'Its time for your Lumosity Break!',
         iconUrl:  '../brain_76x76.png',
         buttons: [
-          {title: 'Snooze [1 hour]'},
-          {title: 'Snooze [3 hours]'}
+          {title: 'Snooze [1 min]'},
+          {title: 'Snooze [1 hour]'}
         ]
       }, restartRemainder);
       break;
 
     case REMAINDER:
       chrome.browserAction.setBadgeText({text: '1'});
+      chrome.browserAction.setBadgeBackgroundColor({color:'#000'}); 
       break;
   }
 });
@@ -55,10 +57,10 @@ chrome.alarms.onAlarm.addListener(function(alarm) {
 chrome.notifications.onButtonClicked.addListener(function (id, index) {
   switch (index) {
     case 0:  // 1 hour
-      chrome.alarms.create(ALARM, {when: Date.now() + ONE_HOUR});
+      chrome.alarms.create(ALARM, {when: Date.now() + ONE_MIN});
       break;
     case 1: // 3 hours
-      chrome.alarms.create(ALARM, {when: Date.now() + ONE_HOUR*3});
+      chrome.alarms.create(ALARM, {when: Date.now() + ONE_HOUR});
       break;
   }
 });
