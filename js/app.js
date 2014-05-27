@@ -8,9 +8,11 @@ ALARM     = 'scheduled_workout';
 ONE_MIN   = 1000*60;
 ONE_HOUR  = 1000*60*60;
 ONE_DAY   = 1000*60*60*24;
+HALF_DAY   = 1000*60*60*12;
+
 
 function restartRemainder () {
-  chrome.alarms.create(REMAINDER, {when: Date.now() + ONE_DAY});
+  chrome.alarms.create(REMAINDER, {when: Date.now() + HALF_DAY});
   chrome.browserAction.setBadgeText({text: ''});
 }
 
@@ -56,10 +58,10 @@ chrome.alarms.onAlarm.addListener(function(alarm) {
 
 chrome.notifications.onButtonClicked.addListener(function (id, index) {
   switch (index) {
-    case 0:  // 1 hour
+    case 0:  // 1 min
       chrome.alarms.create(ALARM, {when: Date.now() + ONE_MIN});
       break;
-    case 1: // 3 hours
+    case 1: // 1 hour
       chrome.alarms.create(ALARM, {when: Date.now() + ONE_HOUR});
       break;
   }
