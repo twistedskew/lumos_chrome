@@ -11,6 +11,12 @@ body{
   margin:0;
 }
 
+#error {
+	display: none;
+	color: #be1e2d;
+	padding-bottom: 20px;
+}
+
 h3{
   color: #000;
   font-size: 1em;
