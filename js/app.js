@@ -6,7 +6,7 @@ NOTIF     = 'train';
 REMAINDER = 'daily_remainder';
 ALARM     = 'scheduled_workout';
 ONE_MIN   = 1000*60;
-ONE_HOUR  = 1000*60*60*24;
+ONE_HOUR  = 1000*60*60;
 ONE_DAY   = 1000*60*60*24;
 
 function restartRemainder () {
