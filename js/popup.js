@@ -31,10 +31,10 @@ $(function (){
       chrome.runtime.sendMessage(+time);
       window.close();
     } else {
-      alert('Use the following format: hour:minutes:am/pm');
-    }
+			$('#error').show();
+		}
   }
-
+  
   $button.on('click', schedule);
   $time.keypress(function (e) {
     if (e.which == 13) { schedule(); }
