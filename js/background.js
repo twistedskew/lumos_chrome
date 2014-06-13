@@ -20,7 +20,7 @@ games = [
   'train-of-thought',
   'tidal-treasures',
   'trouble-brewing',
-  'splitting-seeds''
+  'splitting-seeds'
 ];
 
 games2 = [
