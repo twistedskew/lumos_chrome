@@ -85,6 +85,10 @@ games2 = [
     name: 'Speed Pack'
   },
   {
+    slug: 'speed-match-2',
+    name: 'Speed Match'
+  },
+  {
     slug: 'speed-match-overdrive',
     name: 'Speed Match Overdrive'
   },
