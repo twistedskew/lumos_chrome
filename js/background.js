@@ -19,7 +19,8 @@ games = [
   'star-search',
   'train-of-thought',
   'tidal-treasures',
-  'trouble-brewing'
+  'trouble-brewing',
+  'splitting-seeds'
 ];
 
 games2 = [
@@ -106,5 +107,9 @@ games2 = [
   {
     slug: 'trouble-brewing',
     name: 'Trouble Brewing'
+  },
+  {
+    slug: 'splitting-seeds',
+    name: 'Splitting Seeds'
   }
 ];
