@@ -16,11 +16,11 @@ games = [
   'speed-pack',
   'speed-match-2',
   'speed-match-overdrive',
+  'splitting-seeds',
   'star-search',
   'train-of-thought',
   'tidal-treasures',
-  'trouble-brewing',
-  'splitting-seeds'
+  'trouble-brewing'
 ];
 
 games2 = [
@@ -93,6 +93,10 @@ games2 = [
     name: 'Speed Match Overdrive'
   },
   {
+    slug: 'splitting-seeds',
+    name: 'Splitting Seeds'
+  },
+  {
     slug: 'star-search',
     name: 'Star Search'
   },
@@ -107,9 +111,5 @@ games2 = [
   {
     slug: 'trouble-brewing',
     name: 'Trouble Brewing'
-  },
-  {
-    slug: 'splitting-seeds',
-    name: 'Splitting Seeds'
   }
 ];
