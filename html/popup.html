@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<html>
   <head>
     <script src="../js/jquery-2.1.1.min.js"></script>
     <script src="../js/jquery-ui-1.10.4.min.js"></script>
     <script src="../js/background.js"></script>
-    <script src="../js/date.js"></script>
+    <script src="../js/moment.min.js"></script>
     <script src="../js/popup.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../css/background.css">
@@ -12,22 +13,24 @@
   </head>
   <body>
     <div id="wrapper">
-    <div class="schedule">
-      <h3>Schedule Today's Lumosity Break</h3>
-      <div class="rich-input">
-        <input type="text" id="time" size=10 placeholder="16:00"/>
-        <button class="btn" id="schedule">Remind Me!</button>
-        <div id="error">Please use 24 hour format</div>
+      <div class="schedule">
+        <h3>Schedule Today's Lumosity Break</h3>
+
+        <div class="rich-input">
+          <input type="text" id="time" size=10 placeholder="16:00"/>
+          <button class="btn" id="schedule">Remind Me!</button>
+          <div id="error">Please use 24 hour format</div>
+        </div>
       </div>
-    </div> 
-    <div class="games">
-      <h3>Select Games In Your Breaks</h3>
-      <div id="games-list">
+
+      <div class="games">
+        <h3>Select Games In Your Breaks</h3>
+        <div id="games-list">
+        </div></div>
+
+      <div class="games">
+        <a href="mailto:ab@lumoslabs.com?subject=Lumosity%20Break%20Chrome%20Extension" target="_blank" style="font-size:.9em;">Feedback</a>
       </div>
-    </div>
-    <div class="games">
-    <a href="mailto:ab@lumoslabs.com?subject=Lumosity Break Chrome Extension" target="_blank" style="font-size:.9em;"">Feedback</a>
-    </div>
     </div>
   </body>
 </html>

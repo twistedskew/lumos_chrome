@@ -8,10 +8,6 @@ function resetGamesList(){
   localStorage.checked = JSON.stringify(checked_games);
 }
 
-function selectAll(){
-
-}
-
 var checked_games;
 
 $(function (){
@@ -25,8 +21,8 @@ $(function (){
   checked_games = JSON.parse(localStorage.checked);
 
   function schedule () {
-    var time = Date.parse($time.val());
-    if (time) {
+    var time = moment($time.val(), 'HH:mm');
+    if (time.isValid()) {
       localStorage.setItem('time', time);
       chrome.runtime.sendMessage(+time);
       window.close();
@@ -34,7 +30,7 @@ $(function (){
 			$('#error').show();
 		}
   }
-  
+
   $button.on('click', schedule);
   $time.keypress(function (e) {
     if (e.which == 13) { schedule(); }
