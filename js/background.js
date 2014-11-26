@@ -3,24 +3,28 @@ games = [
   'brain-shift-overdrive-2',
   'chalkboard-challenge-2',
   'color-match-2',
+  'disillusion-2',
   'ebb-and-flow',
   'follow-that-frog',
   'lost-in-migration-2',
+  'memory-match-2',
+  'memory-match-overdrive',
   'memory-matrix-2',
   'penguin-pursuit',
   'pet-detective',
   'pinball-recall',
-  'raindrops',
+  'raindrops-2',
+  'river-ranger',
   'robot-factory',
   'spatial-speed-match-2',
   'speed-pack',
   'speed-match-2',
   'speed-match-overdrive',
-  'splitting-seeds',
   'star-search',
   'train-of-thought',
   'tidal-treasures',
-  'trouble-brewing'
+  'trouble-brewing',
+  'splitting-seeds'
 ];
 
 games2 = [
@@ -41,6 +45,10 @@ games2 = [
     name: 'Color Match'
   },
   {
+    slug: 'disillusion-2',
+    name: 'Disillusion'
+  },
+  {
     slug: 'ebb-and-flow',
     name: 'Ebb and Flow'
   },
@@ -51,6 +59,14 @@ games2 = [
   {
     slug: 'lost-in-migration-2',
     name: 'Lost in Migration'
+  },
+  {
+    slug: 'memory-match-2',
+    name: 'Memory Match'
+  },
+  {
+    slug: 'memory-match-overdrive',
+    name: 'Memory Match Overdrive'
   },
   {
     slug: 'memory-matrix-2',
@@ -69,8 +85,12 @@ games2 = [
     name: 'Pinball Recall'
   },
   {
-    slug: 'raindrops',
+    slug: 'raindrops-2',
     name: 'Raindrops'
+  },
+  {
+    slug: 'river-ranger',
+    name: 'River Ranger'
   },
   {
     slug: 'robot-factory',
@@ -93,10 +113,6 @@ games2 = [
     name: 'Speed Match Overdrive'
   },
   {
-    slug: 'splitting-seeds',
-    name: 'Splitting Seeds'
-  },
-  {
     slug: 'star-search',
     name: 'Star Search'
   },
@@ -111,5 +127,9 @@ games2 = [
   {
     slug: 'trouble-brewing',
     name: 'Trouble Brewing'
+  },
+  {
+    slug: 'splitting-seeds',
+    name: 'Splitting Seeds'
   }
 ];
