@@ -10,7 +10,7 @@ games = [
   'memory-match-2',
   'memory-match-overdrive',
   'memory-matrix-2',
-  'penguin-pursuit',
+  'penguin-pursuit-2',
   'pet-detective',
   'pinball-recall',
   'raindrops-2',
@@ -73,7 +73,7 @@ games2 = [
     name: 'Memory Matrix'
   },
   {
-    slug: 'penguin-pursuit',
+    slug: 'penguin-pursuit-2',
     name: 'Penguin Pursuit'
   },
   {
