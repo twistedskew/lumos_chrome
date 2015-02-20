@@ -3,7 +3,7 @@
 
   "name": "Lumosity Break",
   "description": "Take a quick Lumosity break and exercise your brain!",
-  "version": "1.6.1",
+  "version": "1.6.2",
 
   "icons": {
     "16": "icon16.png",
@@ -12,9 +12,7 @@
   },
 
   "permissions": [
-    "alarms",
-    "notifications",
-    "tabs"
+  "tabs"
   ],
 
   "chrome_url_overrides" : {
