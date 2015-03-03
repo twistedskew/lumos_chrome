@@ -42,16 +42,16 @@ $(function (){
     if (e.which == 13) { schedule(); }
   });
 
-  $.each(games2, function(index, object){
-    var checked = "";
-    console.log(object.slug);
-    console.log(checked_games);
-    if ($.inArray(object.slug, checked_games) >= 0) {
-      checked = ' checked';
-    }
-    var i = $('<input type="checkbox" id="'+object.slug+'"'+checked+' class="game-name"><label for="'+object.slug+'">'+object.name+'</label>');
-    $('#games-list').append(i);
+  lumos.Repository.byPair(function (slug, name) {
+    var $input = $('<input/>', { type: 'checkbox', id: slug }).addClass('game-name')
+      , $label = $('<label/>', { for: slug }).text(name);
+
+    if (_(checked_games).contains(slug))
+      $input.prop('checked', true);
+
+    $('#games-list').append($input, $label);
   });
+
   $( ".game-name" ).button();
   $( ".game-name" ).click(function(button) {
     resetGamesList();
