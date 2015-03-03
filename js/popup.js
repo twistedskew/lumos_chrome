@@ -4,26 +4,6 @@ window.addEventListener('click',function(e){
   }
 })
 
-function updateMenu (updateInformation) {
-  var selectedGames = lumos.Storage.getAll()
-    , value = updateInformation.value;
-
-  switch (updateInformation.op) {
-    case 'add':
-      selectedGames.push(value)
-      break;
-
-    case 'remove':
-      selectedGames = _(selectedGames).without(value)
-      break;
-
-    default:
-      throw 'Unrecognized operation'
-  }
-
-  lumos.Storage.insert(selectedGames);
-}
-
 lumos.Storage = (function (ls, accessor) {
   var get = function ()  { return ls[accessor] }
     , set = function (v) { ls[accessor] = v }
@@ -47,6 +27,26 @@ lumos.Storage = (function (ls, accessor) {
 })(localStorage, 'selectedGames');
 
 $(function (){
+  var updateMenu = function (updateInformation) {
+    var selectedGames = lumos.Storage.getAll()
+      , value = updateInformation.value;
+
+    switch (updateInformation.op) {
+      case 'add':
+        selectedGames.push(value)
+        break;
+
+      case 'remove':
+        selectedGames = _(selectedGames).without(value)
+        break;
+
+      default:
+        throw 'Unrecognized operation'
+    }
+
+    lumos.Storage.insert(selectedGames);
+  }
+
   // Flaky Scheduling operations.
   //
   // var $button = $('#schedule')
