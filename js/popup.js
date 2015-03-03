@@ -4,25 +4,31 @@ window.addEventListener('click',function(e){
   }
 })
 
-function resetGamesList(){
-  checked_games = [];
-  $.each($( ".game-name" ), function(index,object){
-    if(object.checked){
-      checked_games.push(object.id);
-    }
-  });
-  localStorage.checked = JSON.stringify(checked_games);
+function updateMenu (updateInformation) {
+  var selectedGames = JSON.parse(localStorage.checked)
+    , value = updateInformation.value;
+
+  switch (updateInformation.op) {
+    case 'add':
+      selectedGames.push(value)
+      break;
+    case 'remove':
+      selectedGames = _(selectedGames).without(value)
+      break;
+    default:
+      throw 'Unrecognized operation'
+  }
+  localStorage.checked = JSON.stringify(selectedGames);
 }
 
 var checked_games;
 
 $(function (){
-  var $button = $('#schedule'),
-    $time = $('#time');
+  var $button = $('#schedule')
+    , $time   = $('#time');
 
-  if (!localStorage.checked) {
-    localStorage.checked = JSON.stringify(games);
-  }
+  if (_.isUndefined(localStorage.checked))
+    localStorage.checked = JSON.stringify(lumos.Repository.all('slug'));
 
   checked_games = JSON.parse(localStorage.checked);
 
@@ -52,8 +58,12 @@ $(function (){
     $('#games-list').append($input, $label);
   });
 
-  $( ".game-name" ).button();
-  $( ".game-name" ).click(function(button) {
-    resetGamesList();
-  });
+  $( ".game-name" ).button().
+    on('click', function(e) {
+      var $target  = $(e.target)
+        , gameSlug = $(e.target).attr('id')
+        , operation = $target.prop('checked') ? 'add' : 'remove';
+
+      updateMenu({ value: gameSlug, op: operation });
+    });
 });

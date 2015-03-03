@@ -58,8 +58,18 @@
     //
     // Iterate over gamesRepository yielding the name and slug properties.
     byPair: function (interatee) {
-      _(gamesRepository).each(function (value) {
-        interatee(value.slug, value.name);
+      _(gamesRepository).each(function (game) {
+        interatee(game.slug, game.name);
+      });
+    },
+
+    // .all
+    //
+    // Iterates over the collection and returns an array with the value
+    // of calling the property passed to the iteratee object.
+    all: function (property) {
+      return _(gamesRepository).map(function (game) {
+        return game[property];
       });
     }
   };
