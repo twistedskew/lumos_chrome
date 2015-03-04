@@ -34,7 +34,6 @@
 
   "background": {
     "scripts": [
-      "js/moment.min.js",
       "js/app.js"
     ],
 
