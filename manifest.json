@@ -11,9 +11,7 @@
     "128": "icon128.png"
   },
 
-  "permissions": [
-  "tabs"
-  ],
+  "permissions": [ "tabs" ],
 
   "chrome_url_overrides" : {
     "newtab": "html/game_play.html"
@@ -38,6 +36,8 @@
     "scripts": [
       "js/moment.min.js",
       "js/app.js"
-    ]
+    ],
+
+    "persistent": false
   }
 }
