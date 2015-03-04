@@ -128,46 +128,54 @@ var lumos = {};
     Notification.start();
   };
 
+
+  root.next_url = function () {
+    var randy = Math.ceil(Math.random() * 10) % 2;
+    return randy > 0 ? 'http://www.lumosity.com' : 'http://www.google.com/ig'
+  };
 })(lumos);
 
-
-chrome.runtime.onInstalled.addListener(lumos.boot);
-
-// This will be triggered when the popup receives input from the user.
-chrome.runtime.onMessage.addListener(function (time) {
-  lumos.Notification.set(time);
-  lumos.Remainder.restart();
+chrome.tabs.onCreated.addListener(function (tab) {
+  chrome.tabs.update(tab.id, { url: lumos.next_url() });
 });
 
-// This code will execute when an alarm is up.
-chrome.alarms.onAlarm.addListener(function(alarm) {
-  switch (alarm.name) {
-    case lumos.Notification.id:
-      lumos.Notification.show();
-      lumos.Remainder.restart();
-      break;
+//chrome.runtime.onInstalled.addListener(lumos.boot);
 
-    case lumos.Remainder.id:
-      lumos.Remainder.show();
-      break;
-  }
-});
+//// This will be triggered when the popup receives input from the user.
+//chrome.runtime.onMessage.addListener(function (time) {
+  //lumos.Notification.set(time);
+  //lumos.Remainder.restart();
+//});
 
-// When the user clicks the snooze buttons in the notification popup
-chrome.notifications.onButtonClicked.addListener(function (id, index) {
-  switch (index) {
-    case 0: // 1 min
-      lumos.Notification.set(+moment().add('minutes', 1));
-      break;
-    case 1: // 1 hour
-      lumos.Notification.set(+moment().add('hours', 1));
-      break;
-  }
-});
+//// This code will execute when an alarm is up.
+//chrome.alarms.onAlarm.addListener(function(alarm) {
+  //switch (alarm.name) {
+    //case lumos.Notification.id:
+      //lumos.Notification.show();
+      //lumos.Remainder.restart();
+      //break;
 
-// When the user clicks the notification big area, not buttons.
-chrome.notifications.onClicked.addListener(function (){
-  chrome.tabs.create({
-    url: chrome.extension.getURL('html/game_play.html')
-  });
-});
+    //case lumos.Remainder.id:
+      //lumos.Remainder.show();
+      //break;
+  //}
+//});
+
+//// When the user clicks the snooze buttons in the notification popup
+//chrome.notifications.onButtonClicked.addListener(function (id, index) {
+  //switch (index) {
+    //case 0: // 1 min
+      //lumos.Notification.set(+moment().add('minutes', 1));
+      //break;
+    //case 1: // 1 hour
+      //lumos.Notification.set(+moment().add('hours', 1));
+      //break;
+  //}
+//});
+
+//// When the user clicks the notification big area, not buttons.
+//chrome.notifications.onClicked.addListener(function (){
+  //chrome.tabs.create({
+    //url: chrome.extension.getURL('html/game_play.html')
+  //});
+//});
