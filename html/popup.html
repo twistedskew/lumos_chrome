@@ -3,8 +3,7 @@
   <head>
     <script src="../js/jquery-2.1.1.min.js"></script>
     <script src="../js/jquery-ui-1.10.4.min.js"></script>
-    <script src="../js/underscore.js"></script>
-    <script src="../js/repository.js"></script>
+    <script src="../js/background.js"></script>
     <script src="../js/moment.min.js"></script>
     <script src="../js/popup.js"></script>
 
@@ -23,21 +22,34 @@
           <div id="error">Please use 24 hour format</div>
         </div>
       </div>-->
-
-      <div class="games">
-        <div>
-          <h3>Games In Your Breaks</h3>
-          <h4 style="margin-top:-10px;">Deselect games you don't want:</h4></div>
-        <div id="games-list">
-        </div>
         <div class="playnowbutton">
          <a href="game_play.html" target="_blank">Take a Break Now</a>
         </div>
-      </div>
+        <hr>
+      <div class="games">
+        <div>
+          <h3>Frequency of your breaks:</h3>
+          <label>
+              <select>
+                  <option>Every time I open a new tab</option>
+                  <option selected>Once every 5 new tabs</option>
+                  <option>Once every 10 new tabs</option>
+                  <option>Once every 15 new tabs</option>
+                  <option>Once every 20 new tabs</option>
+                  <option>Never</option>
+              </select>
+          </label>
+          <br><br><br>
+        </div>
 
+        <div>
+          <h3>Deselect games you don't want:</h3></div>
+        <div id="games-list">
+        </div>
+      </div>
+      <hr>
       <div class="games">
         <a href="mailto:ab@lumoslabs.com?subject=Lumosity%20Break%20Chrome%20Extension" target="_blank">Do you like your Breaks?</a>
-        <a style="float:right;" href="http://www.lumosity.com">Train on Lumosity</a> 
       </div>
     </div>
   </body>
