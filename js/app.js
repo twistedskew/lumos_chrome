@@ -2,31 +2,38 @@
 //
 // Authors: Alan Andrade, Brian Ko, Abhishek Gupta.
 
-var lumos = {};
-
-lumos.Frequencies = {
-  'relaxed':  1/6,
-  'balanced': 1/2,
-  'intense':  1
-}
-
-lumos.openTabCounter = 0;
-
-lumos.runTrial = function (callback) {
-  lumos.openTabCounter++;
-
-  var experiment = function () {
-    Math.ceil(Math.random() * 10) % 2;
+var lumos = (function () {
+  var Frequencies = {
+    'relaxed':  { oneIn: 6 },
+    'balanced': { oneIn: 2 },
+    'intense':  { oneIn: 1 }
   }
 
-  if (randy > 0)
-    callback('http://www.google.com/ig')
-}
+  var isOneInRandom = function (max) {
+    return 1 == _.random(1, max);
+  };
+
+  function runTrialFor (frequency, callback) {
+    var trialNo   = 1
+      , trialsMax = Frequencies[frequency].oneIn;
+
+    while (trialNo <= trialsMax) {
+      trialNo++;
+
+      if (isOneInRandom(trialsMax)) {
+        callback();
+        return;
+      }
+    }
+  }
+
+
+  return { runTrialFor: runTrialFor }
+})();
 
 // tabs onCreated
 chrome.tabs.onCreated.addListener(function (tab) {
-  lumos.runTrial(function (url) {
-    chrome.tabs.update(tab.id, { url: url });
+  lumos.runTrialFor('balanced', function () {
+    chrome.tabs.update(tab.id, { url: 'http://www.google.com/ig' });
   });
-  console.log(lumos.tabCreate);
 });
