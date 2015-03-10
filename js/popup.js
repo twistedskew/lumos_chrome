@@ -5,7 +5,10 @@
 lumos.Storage = function (access_key) {
   // Basic Read/write
   function read ()  { return localStorage[access_key]; }
-  function write (value) { localStorage[access_key] = value; }
+  function write (value) {
+    localStorage[access_key] = value;
+    cache.clear();
+  }
   function isEmpty () { return _.isUndefined(read()); }
   function reset () {
     localStorage.removeItem(access_key); // Clean localStorage
@@ -35,30 +38,25 @@ lumos.Storage = function (access_key) {
   // Public API
   //
   function list () {
-    return cache(function () { return deserialize(read()); });
+    return _(cache(function () { return deserialize(read()); }));
   }
 
   function setupData (object) {
-    cache.clear();
     write(serialize(object));
   }
 
   // Inserts 1 item
   function insert (object) {
     var data = list();
-
     data.push(object);
     write(serialize(data));
-    cache.clear();
   }
 
   function remove (object) {
-    var data = _(list()).reject(function (datum) {
+    var data = list().reject(function (datum) {
       return datum == object;
     });
-
     write(serialize(data));
-    cache.clear();
   }
 
   function update (updateInformation) {
@@ -82,7 +80,9 @@ lumos.Storage = function (access_key) {
 
   return {
     update: update,
-    list: list
+    contains: function (object) {
+      return list().contains(object);
+    }
   };
 };
 
@@ -94,7 +94,7 @@ $(function (){
     var $input = $('<input/>', { type: 'checkbox', id: slug }).addClass('game-name'),
         $label = $('<label/>', { for: slug }).text(name);
 
-    if (_(Games.list()).contains(slug))
+    if (Games.contains(slug))
       $input.prop('checked', true);
 
     $('#games-list').append($input, $label);
