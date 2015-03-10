@@ -69,7 +69,7 @@
     // of calling the property passed to the iteratee object.
     all: function (property) {
       return _(gamesRepository).map(function (game) {
-        return game[property];
+        return property ? game[property] : game;
       });
     }
   };
