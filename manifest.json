@@ -30,14 +30,5 @@
       "38": "brain_76x76.png"
     },
     "default_popup": "html/popup.html"
-  },
-
-  "background": {
-    "scripts": [
-      "js/underscore.js",
-      "js/app.js"
-    ],
-
-    "persistent": false
   }
 }

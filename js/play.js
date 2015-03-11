@@ -7,5 +7,5 @@ requirejs.config({
     underscore: 'vendor/underscore'
   },
 
-  deps: ['underscore', 'jquery', 'jqueryui', 'popup/main']
+  deps: ['underscore', 'jquery', 'jqueryui', 'play/main']
 });

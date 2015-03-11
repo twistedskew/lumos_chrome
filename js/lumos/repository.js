@@ -1,4 +1,4 @@
-(function (lumos) {
+define(function () {
   var gamesRepository = [
     { slug: 'brain-shift-2',
       name: 'Brain Shift' },
@@ -53,7 +53,7 @@
     { slug: 'trouble-brewing',
       name: 'Trouble Brewing' }];
 
-  lumos.Repository = {
+  return {
     // .by_pair
     //
     // Iterate over gamesRepository yielding the name and slug properties.
@@ -73,7 +73,4 @@
       });
     }
   };
-
-})(
- _.isUndefined(this.lumos) ? (this.lumos = {}) : lumos
-);
+});
