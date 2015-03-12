@@ -11,17 +11,10 @@
     "128": "icon128.png"
   },
 
-  "permissions": [ "tabs" ],
+  "permissions": [ "tabs", "management" ],
 
   "chrome_url_overrides" : {
     "newtab": "html/game_play.html"
-  },
-
-  "sandbox": {
-    "pages": [
-      "html/game.html",
-      "game.html"
-    ]
   },
 
   "browser_action": {
