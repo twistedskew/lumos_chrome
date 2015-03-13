@@ -11,7 +11,7 @@ define(['underscore'], function (_) {
     localStorage[ACCESS_KEY] = value;
     cache.clear();
   }
-  function isEmpty () { return _.isUndefined(read()); }
+  function isFirstRun () { return _.isUndefined(read()); }
   function reset () {
     localStorage.removeItem(ACCESS_KEY); // Clean localStorage
     cache.clear();
@@ -47,7 +47,6 @@ define(['underscore'], function (_) {
     write(serialize(object));
   }
 
-  // Inserts 1 item
   function insert (object) {
     var data = list();
     data.push(object);
@@ -77,7 +76,7 @@ define(['underscore'], function (_) {
   }
 
   // Boot the repository by adding all games by slug.
-  if (isEmpty())
+  if (isFirstRun())
     setupData(lumos.Repository.all('slug'));
 
   return {
@@ -85,6 +84,13 @@ define(['underscore'], function (_) {
     update: update,
     contains: function (object) {
       return list().contains(object);
+    },
+    isEmpty: function () {
+      return list().size() === 0;
+    },
+    randomSlug: function () {
+      var randomIndex = Math.floor(Math.random() * list().size());
+      return list()._wrapped[randomIndex];
     }
   };
 });
