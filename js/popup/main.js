@@ -16,10 +16,13 @@ define(
   // Event handling for button clicking.
   $('.game-name').button().on('click', function(e) {
     var $target  = $(e.target),
-        gameSlug = $(e.target).attr('id'),
-        operation = $target.prop('checked') ? 'select' : 'deselect';
+        gameSlug = $(e.target).attr('id');
 
-    Games.update({ value: gameSlug, op: operation });
+    if ($target.prop('checked')) {
+      Games.select(gameSlug);
+    } else {
+      Games.deselect(gameSlug);
+    }
   });
 
   Freq.buildSelectTag('#training-frequency');

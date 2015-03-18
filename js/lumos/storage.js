@@ -59,21 +59,6 @@ define(
     write(serialize(data));
   }
 
-  function update (updateInformation) {
-    switch (updateInformation.op) {
-      case 'select':
-        insert(updateInformation.value);
-        break;
-
-      case 'deselect':
-        remove(updateInformation.value);
-        break;
-
-      default:
-        throw 'Unrecognized operation';
-    }
-  }
-
   // Boot the repository by adding all games by slug.
   if (isFirstRun())
     setupData(Repository.all('slug'));
@@ -84,17 +69,15 @@ define(
 
   _.extend(Storage.prototype, {
     list: list,
-    update: update,
+    insert: insert,
+    remove: remove,
+
     contains: function (object) {
       return list().contains(object);
     },
     isEmpty: function () {
       return list().size() === 0;
     },
-    randomSlug: function () {
-      var randomIndex = Math.floor(Math.random() * list().size());
-      return list()._wrapped[randomIndex];
-    }
   });
 
   return Storage;
