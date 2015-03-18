@@ -1,4 +1,7 @@
-define(['lumos/repository', 'lumos/storage'], function (Repository, Storage) {
+define(
+  ['lumos/repository', 'lumos/storage', 'lumos/freq'],
+  function (Repository, Storage, Freq) {
+
   // Build buttons for popup.
   Repository.byPair(function (slug, name) {
     var $input = $('<input/>', { type: 'checkbox', id: slug }).addClass('game-name'),
@@ -18,4 +21,6 @@ define(['lumos/repository', 'lumos/storage'], function (Repository, Storage) {
 
     Storage.update({ value: gameSlug, op: operation });
   });
+
+  Freq.buildSelectTag('#training-frequency');
 });

@@ -1,4 +1,10 @@
-define(['lumos/storage'], function (Storage) {
+define(
+  ['lumos/storage', 'lumos/experiment', 'lumos/freq'],
+  function (Storage, Experiment, Freq) {
+
+  if (window.location.hash === '')
+    Experiment(Freq.getSampleSize('relaxed')); // Redirects to google if experiment is successful.
+
   var list = Storage.list()._wrapped;
 
   if (Storage.isEmpty()) {
@@ -7,20 +13,4 @@ define(['lumos/storage'], function (Storage) {
     var src = 'http://lumosity.com/app/v4/games/' + Storage.randomSlug() + '?source=lumosity-break';
     $('#innerdiv').attr('src', src);
   }
-
-  chrome.management.getAll(function(extensions) {
-    var custom = _(extensions).filter(function (ext) {
-      return ext.type === 'extension';
-    });
-
-    custom.map(function (ext) {
-      console.log(ext.name);
-      console.log(ext.type);
-      console.log(ext.launchType);
-      console.log(ext.homepageUrl);
-      console.log(ext.permissions);
-      console.log(ext.optionsUrl);
-      console.log('------------');
-    });
-  });
 });
