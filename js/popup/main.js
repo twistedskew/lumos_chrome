@@ -1,13 +1,13 @@
 define(
-  ['lumos/repository', 'lumos/storage', 'lumos/freq'],
-  function (Repository, Storage, Freq) {
+  ['lumos/repository', 'lumos/games', 'lumos/freq'],
+  function (Repository, Games, Freq) {
 
   // Build buttons for popup.
   Repository.byPair(function (slug, name) {
     var $input = $('<input/>', { type: 'checkbox', id: slug }).addClass('game-name'),
         $label = $('<label/>', { for: slug }).text(name);
 
-    if (Storage.contains(slug))
+    if (Games.contains(slug))
       $input.prop('checked', true);
 
     $('#games-list').append($input, $label);
@@ -19,7 +19,7 @@ define(
         gameSlug = $(e.target).attr('id'),
         operation = $target.prop('checked') ? 'select' : 'deselect';
 
-    Storage.update({ value: gameSlug, op: operation });
+    Games.update({ value: gameSlug, op: operation });
   });
 
   Freq.buildSelectTag('#training-frequency');

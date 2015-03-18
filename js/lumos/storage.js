@@ -1,19 +1,18 @@
-define(['underscore'], function (_) {
+define(
+  ['underscore', 'lumos/repository'],
+  function (_, Repository) {
   // Wrapper around localStorage.
-  //
-  // Adds data serialization, read/write and caching.
-  //
-  ACCESS_KEY = 'selectedGames';
 
+  var access_key;
   // Basic Read/write
-  function read ()  { return localStorage[ACCESS_KEY]; }
+  function read ()  { return localStorage[access_key]; }
   function write (value) {
-    localStorage[ACCESS_KEY] = value;
+    localStorage[access_key] = value;
     cache.clear();
   }
   function isFirstRun () { return _.isUndefined(read()); }
   function reset () {
-    localStorage.removeItem(ACCESS_KEY); // Clean localStorage
+    localStorage.removeItem(access_key); // Clean localStorage
     cache.clear();
   }
 
@@ -77,9 +76,13 @@ define(['underscore'], function (_) {
 
   // Boot the repository by adding all games by slug.
   if (isFirstRun())
-    setupData(lumos.Repository.all('slug'));
+    setupData(Repository.all('slug'));
 
-  return {
+  function Storage (key) {
+    this.access_key = key;
+  }
+
+  _.extend(Storage.prototype, {
     list: list,
     update: update,
     contains: function (object) {
@@ -92,5 +95,7 @@ define(['underscore'], function (_) {
       var randomIndex = Math.floor(Math.random() * list().size());
       return list()._wrapped[randomIndex];
     }
-  };
+  });
+
+  return Storage;
 });
