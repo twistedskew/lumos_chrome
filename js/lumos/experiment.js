@@ -8,17 +8,21 @@ define(function () {
   };
 
   function run (sampleSize) {
-    var trialNo   = 0;
+    var trialNo  = 0,
+        redirect = true;
 
     while (trialNo <= sampleSize) {
       trialNo++;
 
       if (isOneInRandom(sampleSize)) {
-        // Refactor
-        window.location.href = 'http://google.com/ig';
+        redirect = false;
         return;
       }
     }
+
+    // Refactor
+    if (redirect)
+      window.location.href = 'http://google.com/ig';
   }
 
   return run;

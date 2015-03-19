@@ -17,10 +17,15 @@ define(['lumos/tfreq'], function (TFreq) {
     var $select = $('<select>');
 
     for (var freq in Frequencies) {
-      $('<option>', {
+      var optionTag = $('<option>', {
         name: freq,
         value: getSampleSize(freq)
-      }).text(capitalize(freq)).appendTo($select);
+      });
+
+      if (TFreq.get() === freq)
+        optionTag.prop('selected', true);
+
+      optionTag.text(capitalize(freq)).appendTo($select);
     }
 
     $select.on('change', function(e) {
