@@ -1,13 +1,16 @@
 define(
-  ['lumos/repository', 'lumos/games', 'lumos/freq'],
+  ['lumos/repository', 'lumos/game-selection', 'lumos/freq'],
   function (Repository, Games, Freq) {
+
+  if (Games.isEmpty())
+    Games.insert(Repository.all('slug'));
 
   // Build buttons for popup.
   Repository.byPair(function (slug, name) {
     var $input = $('<input/>', { type: 'checkbox', id: slug }).addClass('game-name'),
         $label = $('<label/>', { for: slug }).text(name);
 
-    if (Games.contains(slug))
+    if (_.contains(Games.get(), slug))
       $input.prop('checked', true);
 
     $('#games-list').append($input, $label);
