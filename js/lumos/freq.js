@@ -1,4 +1,4 @@
-define(function () {
+define(['lumos/tfreq'], function (TFreq) {
   var Frequencies = {
     'relaxed':  { oneIn: 6 },
     'balanced': { oneIn: 2 },
@@ -22,6 +22,11 @@ define(function () {
         value: getSampleSize(freq)
       }).text(capitalize(freq)).appendTo($select);
     }
+
+    $select.on('change', function(e) {
+      var option = $(e.target).find(':selected');
+      TFreq.insert(option.attr('name'));
+    });
 
     $(targetId).
       text("Frequency: ").
