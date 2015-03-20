@@ -3,21 +3,17 @@ define(function (require) {
       Experiment = require('lumos/experiment');
 
   var Frequencies = {
-    'relaxed':  { oneIn: 6 },
-    'balanced': { oneIn: 2 },
-    'intense':  { oneIn: 1 }
+    'Every time I open a new tab': { oneIn: 1 },
+    'Once every 5 new tabs': { oneIn: 5 },
+    'Once every 10 new tabs': { oneIn: 10 },
+    'Once every 15 new tabs': { oneIn: 15 },
+    'Once every 20 new tabs': { oneIn: 20 },
+    'Never': { oneIn: 0 }
   };
 
-  var Frequency = new Storage('trainingFrequency');
+  defaultFrequency = Frequencies['Every time I open a new tab'].oneIn;
 
-  function getSampleSize () {
-    return Frequencies[Frequency.get()].oneIn;
-  }
-
-
-  function capitalize (string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+  var Frequency = new Storage('trainingFrequency', defaultFrequency);
 
   function buildSelectTag (targetId) {
     var $select = $('<select>');
@@ -25,29 +21,27 @@ define(function (require) {
     for (var freq in Frequencies) {
       var optionTag = $('<option>', {
         name: freq,
-        value: getSampleSize(freq)
+        value: Frequencies[freq].oneIn
       });
 
       if (Frequency.get() === freq)
         optionTag.prop('selected', true);
 
-      optionTag.text(capitalize(freq)).appendTo($select);
+      optionTag.text(freq).appendTo($select);
     }
 
     $select.on('change', function(e) {
       var option = $(e.target).find(':selected');
-      Frequency.insert(option.attr('name'));
+      Frequency.insert(option.val());
     });
 
-    $(targetId).
-      text("Frequency: ").
-      append($select);
+    $(targetId).append($select);
   }
 
   return {
     buildSelectTag: buildSelectTag,
     runExperiment: function() {
-      Experiment(getSampleSize());
+      Experiment(Frequency.get());
     }
   };
 });

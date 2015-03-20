@@ -6,23 +6,23 @@ body{
 }
 /* The CSS */
 select {
-    width:100%;
-    height:35px;
-    padding:10px;
-    margin: 0;
-    font-size:1em;
-    font-family: "Museo Sans","Lucida Grande",Arial,sans-serif;
-    -webkit-border-radius:4px;
-    -moz-border-radius:4px;
-    border-radius:4px;
-    -webkit-box-shadow: 0 2px 0 #ccc, 0 -1px #fff inset;
-    -moz-box-shadow: 0 2px 0 #ccc, 0 -1px #fff inset;
-    box-shadow: 0 2px 0 #ccc, 0 -1px #fff inset;
-    background: #f8f8f8;
-    color:#333;
-    border-color:#ddd;
-    display: inline-block;
-    cursor:pointer;
+  width:100%;
+  height:35px;
+  padding:10px;
+  margin: 0;
+  font-size:1em;
+  font-family: "Museo Sans","Lucida Grande",Arial,sans-serif;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px;
+  -webkit-box-shadow: 0 2px 0 #ccc, 0 -1px #fff inset;
+  -moz-box-shadow: 0 2px 0 #ccc, 0 -1px #fff inset;
+  box-shadow: 0 2px 0 #ccc, 0 -1px #fff inset;
+  background: #f8f8f8;
+  color:#333;
+  border-color:#ddd;
+  display: inline-block;
+  cursor:pointer;
 }
 
 #wrapper {
@@ -32,9 +32,9 @@ select {
 }
 
 #error {
-	display: none;
-	color: #be1e2d;
-	padding-bottom: 20px;
+  display: none;
+  color: #be1e2d;
+  padding-bottom: 20px;
 }
 
 h3{
@@ -68,11 +68,11 @@ hr{
   vertical-align: middle;
   padding-left: 10px;
 }
- .schedule{
+.schedule{
   padding:0 20px;
   border-bottom: 1px solid #ccc;
 }
- .games{
+.games{
   padding:0 20px;
   margin-top:15px;
   margin-bottom: 20px;
@@ -110,20 +110,20 @@ hr{
 }
 
 .playnowbutton a{
-    width:78%;
-    border-radius: 4px;
-    display: inline-block;
-    line-height:1.2em;
-    font-size:1.2em;
-    padding:16px 16px 14px 16px;
-    color: #fff;
-    background-color: #f1693c;
-    text-align:center;
-    border-bottom: 2px solid #C94727;
+  width:78%;
+  border-radius: 4px;
+  display: inline-block;
+  line-height:1.2em;
+  font-size:1.2em;
+  padding:16px 16px 14px 16px;
+  color: #fff;
+  background-color: #f1693c;
+  text-align:center;
+  border-bottom: 2px solid #C94727;
 }
 
 .ui-state-default{
-color: #1c94c4 !important;
+  color: #1c94c4 !important;
 }
 
 .ui-button{

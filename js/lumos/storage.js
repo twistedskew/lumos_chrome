@@ -7,8 +7,10 @@ define(function () {
     return JSON.parse(object);
   }
 
-  var Storage = function (key) {
+  var Storage = function (key, defaultValue) {
     this.access_key = key;
+    if (defaultValue && 'undefined' === typeof this.read())
+      this.insert(defaultValue);
   };
 
   Storage.prototype = {

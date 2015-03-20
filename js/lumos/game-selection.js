@@ -1,5 +1,8 @@
-define(['lumos/storage'], function (Storage) {
-  var Games = new Storage('selectedGames');
+define(function (require) {
+  var Storage = require('lumos/storage'),
+      Repository = require('lumos/repository');
+
+  var Games = new Storage('selectedGames', Repository.all('slug'));
 
   _.extend(Games, {
     isEmpty: function() {

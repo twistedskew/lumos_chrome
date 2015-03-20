@@ -3,9 +3,6 @@ define(function (require) {
       Games = require('lumos/game-selection'),
       Freq = require('lumos/freq');
 
-  if (Games.isEmpty())
-    Games.insert(Repository.all('slug'));
-
   // Build buttons for popup.
   Repository.byPair(function (slug, name) {
     var $input = $('<input/>', { type: 'checkbox', id: slug }).addClass('game-name'),

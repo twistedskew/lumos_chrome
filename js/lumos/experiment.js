@@ -11,7 +11,7 @@ define(function () {
     var trialNo  = 0,
         redirect = true;
 
-    while (trialNo <= sampleSize) {
+    while (trialNo < sampleSize) {
       trialNo++;
 
       if (isOneInRandom(sampleSize)) {
