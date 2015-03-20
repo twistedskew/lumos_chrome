@@ -1,6 +1,7 @@
-define(
-  ['lumos/repository', 'lumos/game-selection', 'lumos/freq'],
-  function (Repository, Games, Freq) {
+define(function (require) {
+  var Repository = require('lumos/repository'),
+      Games = require('lumos/game-selection'),
+      Freq = require('lumos/freq');
 
   if (Games.isEmpty())
     Games.insert(Repository.all('slug'));
@@ -16,7 +17,6 @@ define(
     $('#games-list').append($input, $label);
   });
 
-  // Event handling for button clicking.
   $('.game-name').button().on('click', function(e) {
     var $target  = $(e.target),
         gameSlug = $(e.target).attr('id');

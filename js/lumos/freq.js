@@ -1,13 +1,19 @@
-define(['lumos/tfreq'], function (TFreq) {
+define(function (require) {
+  var Storage = require('lumos/storage'),
+      Experiment = require('lumos/experiment');
+
   var Frequencies = {
     'relaxed':  { oneIn: 6 },
     'balanced': { oneIn: 2 },
     'intense':  { oneIn: 1 }
   };
 
-  function getSampleSize (frequency) {
-    return Frequencies[frequency].oneIn;
+  var Frequency = new Storage('trainingFrequency');
+
+  function getSampleSize () {
+    return Frequencies[Frequency.get()].oneIn;
   }
+
 
   function capitalize (string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -22,7 +28,7 @@ define(['lumos/tfreq'], function (TFreq) {
         value: getSampleSize(freq)
       });
 
-      if (TFreq.get() === freq)
+      if (Frequency.get() === freq)
         optionTag.prop('selected', true);
 
       optionTag.text(capitalize(freq)).appendTo($select);
@@ -30,7 +36,7 @@ define(['lumos/tfreq'], function (TFreq) {
 
     $select.on('change', function(e) {
       var option = $(e.target).find(':selected');
-      TFreq.insert(option.attr('name'));
+      Frequency.insert(option.attr('name'));
     });
 
     $(targetId).
@@ -40,6 +46,8 @@ define(['lumos/tfreq'], function (TFreq) {
 
   return {
     buildSelectTag: buildSelectTag,
-    getSampleSize: getSampleSize
+    runExperiment: function() {
+      Experiment(getSampleSize());
+    }
   };
 });

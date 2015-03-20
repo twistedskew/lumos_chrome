@@ -3,9 +3,9 @@
 // Authors: Alan Andrade, Brian Ko, Abhishek Gupta.
 
 define(function () {
-  var isOneInRandom = function (max) {
+  function isOneInRandom (max) {
     return 1 == _.random(1, max);
-  };
+  }
 
   function run (sampleSize) {
     var trialNo  = 0,

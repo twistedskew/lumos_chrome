@@ -1,5 +1,5 @@
 define(['lumos/storage'], function (Storage) {
-  Games = new Storage('selectedGames');
+  var Games = new Storage('selectedGames');
 
   _.extend(Games, {
     isEmpty: function() {

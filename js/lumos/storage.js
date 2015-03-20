@@ -7,7 +7,7 @@ define(function () {
     return JSON.parse(object);
   }
 
-  Storage = function (key) {
+  var Storage = function (key) {
     this.access_key = key;
   };
 
