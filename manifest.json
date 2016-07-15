@@ -1,43 +1,30 @@
 {
-  "manifest_version": 2,
-
-  "name": "Lumosity Break",
-  "description": "Take a quick Lumosity break and exercise your brain!",
-  "version": "1.6.3",
-
-  "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
-  },
-
-  "permissions": [ "tabs" ],
-
-  "chrome_url_overrides" : {
-    "newtab": "html/game_play.html"
-  },
-
-  "sandbox": {
-    "pages": [
-      "html/game.html",
-      "game.html"
-    ]
-  },
-
-  "browser_action": {
-    "default_icon": {
-      "19": "brain_19x19.png",
-      "38": "brain_76x76.png"
-    },
-    "default_popup": "html/popup.html"
-  },
-
-  "background": {
-    "scripts": [
-      "js/moment.min.js",
-      "js/app.js"
-    ],
-
-    "persistent": false
-  }
+   "background": {
+      "scripts": [ "js/moment.min.js", "js/app.js" ]
+   },
+   "browser_action": {
+      "default_icon": {
+         "19": "brain_19x19.png",
+         "38": "brain_76x76.png"
+      },
+      "default_popup": "html/popup.html"
+   },
+   "chrome_url_overrides": {
+      "newtab": "html/game_play.html"
+   },
+   "description": "Take a quick Lumosity break and exercise your brain!",
+   "icons": {
+      "128": "icon128.png",
+      "16": "icon16.png",
+      "48": "icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7u38J7IhKBQeyGM8z3fYbfddZ6sCeX+autcTQ3fKlA317cteZb7LCBtUOFdAGPV07qEIBObPGGC9omEJ9zmyJvVtp7uUD6NnzwEb5Uy8v4hYiRU1TmK6TrLSWX7jxQDSAdQzag/YS7hWWeN2EHQcGD8XuZWBPhokySjR9rbh6n2N5rsorYam6ar698eS2JNUj4i6164RjupjAJTW7B+SU5VDBZOQbhUPJC5eF/2t7HqqZFVIqi8+srNm9YwqCU24VJUcVwUC/8dBB/tgdX99gn8gznOy8mgVoPzJSSrbPBFcY3eceaSX74O9u9xeRfvmBYcdZC8GOuzOHDjYicGifwIDAQAB",
+   "manifest_version": 2,
+   "name": "Lumosity Break",
+   "permissions": [ "tabs" ],
+   "sandbox": {
+      "pages": [ "html/game.html", "game.html" ]
+   },
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.6.4"
 }
