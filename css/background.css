@@ -44,15 +44,15 @@ h4{
 }
 
 #outerdiv {
-width:684px;
-height:554px;
-overflow:hidden;
-position:relative;
+  width:684px;
+  height:554px;
+  overflow:hidden;
+  position:relative;
 }
 #innerdiv {
-position:absolute;
-top:-129px;
-left:-146px;
-width:1280px;
-height:1200px;
+  position:absolute;
+  top:-129px;
+  left:-146px;
+  width:1280px;
+  height:1200px;
 }
