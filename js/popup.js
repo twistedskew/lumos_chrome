@@ -1,59 +1,56 @@
-window.addEventListener('click',function(e){
-  if(e.target.href!==undefined){
-    chrome.tabs.create({url:e.target.href})
-  }
-})
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script src="../js/jquery-ui-1.10.4.min.js"></script>
+    <script src="../js/background.js"></script>
+    <script src="../js/moment.min.js"></script>
+    <script src="../js/popup.js"></script>
 
-function resetGamesList(){
-  checked_games = [];
-  $.each($( ".game-name" ), function(index,object){
-    if(object.checked){
-      checked_games.push(object.id);
-    }
-  });
-  localStorage.checked = JSON.stringify(checked_games);
-}
+    <link rel="stylesheet" type="text/css" href="../css/background.css">
+    <link rel="stylesheet" type="text/css" href="../css/popup.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui-1.10.4.min.css">
+  </head>
+  <body>
+    <div id="wrapper">
+      <!--<div class="schedule">
+        <h3>Schedule Today's Lumosity Break</h3>
 
-var checked_games;
+        <div class="rich-input">
+          <input type="text" id="time" size=10 placeholder="16:00"/>
+          <button class="btn" id="schedule">Remind Me!</button>
+          <div id="error">Please use 24 hour format</div>
+        </div>
+      </div>-->
+        <div class="playnowbutton">
+         <a href="game_play.html" target="_blank">Take a Break Now</a>
+        </div>
+        <hr>
+      <div class="games">
+        <!-- <div>
+          <h3>Frequency of your breaks:</h3>
+          <label>
+              <select>
+                  <option>Every time I open a new tab</option>
+                  <option selected>Once every 5 new tabs</option>
+                  <option>Once every 10 new tabs</option>
+                  <option>Once every 15 new tabs</option>
+                  <option>Once every 20 new tabs</option>
+                  <option>Never</option>
+              </select>
+          </label>
+          <br><br><br>
+        </div> -->
 
-$(function (){
-  var $button = $('#schedule'),
-    $time = $('#time');
-
-  if (!localStorage.checked) {
-    localStorage.checked = JSON.stringify(games);
-  }
-
-  checked_games = JSON.parse(localStorage.checked);
-
-  function schedule () {
-    var time = moment($time.val(), 'HH:mm');
-    if (time.isValid()) {
-      localStorage.setItem('time', time);
-      chrome.runtime.sendMessage(+time);
-      window.close();
-    } else {
-			$('#error').show();
-		}
-  }
-
-  $button.on('click', schedule);
-  $time.keypress(function (e) {
-    if (e.which == 13) { schedule(); }
-  });
-
-  $.each(games2, function(index, object){
-    var checked = "";
-    console.log(object.slug);
-    console.log(checked_games);
-    if ($.inArray(object.slug, checked_games) >= 0) {
-      checked = ' checked';
-    }
-    var i = $('<input type="checkbox" id="'+object.slug+'"'+checked+' class="game-name"><label for="'+object.slug+'">'+object.name+'</label>');
-    $('#games-list').append(i);
-  });
-  $( ".game-name" ).button();
-  $( ".game-name" ).click(function(button) {
-    resetGamesList();
-  });
-});
+        <div>
+          <h3>Deselect games you don't want:</h3></div>
+        <div id="games-list">
+        </div>
+      </div>
+      <hr>
+      <div class="games">
+        <a href="mailto:ab@lumoslabs.com?subject=Lumosity%20Break%20Chrome%20Extension" target="_blank">How do your feel about your Breaks?</a>
+      </div>
+    </div>
+  </body>
+</html>
