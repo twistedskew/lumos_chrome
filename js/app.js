@@ -1,6 +1,6 @@
 // Lumosity chrome extension
 //
-// Authors: Alan Andrade, Brian Ko, Abhishek Gupta.
+// Authors: Abhishek Gupta, Alan Andrade, Brian Ko.
 
 var lumos = {};
 
