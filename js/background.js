@@ -22,13 +22,18 @@ games = [
   'brain-shift-overdrive-2',
   'chalkboard-challenge-2',
   'color-match-2',
+  'contextual',
+  'continuum',
   'disillusion-2',
   'ebb-and-flow',
+  'editors-choice',
   'follow-that-frog',
+  'highway-hazards',
   'lost-in-migration-2',
   'memory-match-2',
   'memory-match-overdrive',
   'memory-matrix-2',
+  'organic-order',
   'penguin-pursuit-2',
   'pet-detective',
   'pinball-recall',
@@ -41,10 +46,11 @@ games = [
   'speed-match-overdrive',
   'splitting-seeds',
   'star-search',
+  'taking-root',
   'train-of-thought',
   'tidal-treasures',
   'trouble-brewing',
-  'word-bubbles-2'
+  'word-bubbles-3'
 ];
 
 games2 = [
@@ -65,6 +71,14 @@ games2 = [
     name: 'Color Match'
   },
   {
+    slug: 'contextual',
+    name: 'Contextual'
+  },
+  {
+    slug: 'continuum',
+    name: 'Continuum'
+  },
+  {
     slug: 'disillusion-2',
     name: 'Disillusion'
   },
@@ -73,12 +87,24 @@ games2 = [
     name: 'Ebb and Flow'
   },
   {
+    slug: 'editors-choice',
+    name: 'Editors Choice'
+  },
+  {
     slug: 'follow-that-frog',
     name: 'Follow that Frog'
   },
   {
+    slug: 'highway-hazards',
+    name: 'Highway Hazards'
+  },  
+  {
     slug: 'lost-in-migration-2',
     name: 'Lost in Migration'
+  },
+  {
+    slug: 'masterpiece',
+    name: 'Masterpiece'
   },
   {
     slug: 'memory-match-2',
@@ -91,6 +117,10 @@ games2 = [
   {
     slug: 'memory-matrix-2',
     name: 'Memory Matrix'
+  },
+    {
+    slug: 'organic-order',
+    name: 'Organic Order'
   },
   {
     slug: 'penguin-pursuit-2',
@@ -141,6 +171,10 @@ games2 = [
     name: 'Star Search'
   },
   {
+    slug: 'taking-root',
+    name: 'Taking Root'
+  },
+  {
     slug: 'train-of-thought',
     name: 'Train of Thought'
   },
@@ -153,8 +187,12 @@ games2 = [
     name: 'Trouble Brewing'
   },
   {
-    slug: 'word-bubbles-2',
+    slug: 'word-bubbles-3',
     name: 'Word Bubbles'
+  },
+  {
+    slug: 'word-snatchers',
+    name: 'Word Snatchers'
   }
 
 ];
